@@ -40,10 +40,6 @@ class ModelfileGenerator:
         "repeat_penalty": 1.1,
     }
     
-    def __init__(self):
-        """Initialize the Modelfile generator."""
-        pass
-    
     def generate(
         self,
         gguf_file: str,

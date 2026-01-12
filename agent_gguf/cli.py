@@ -13,13 +13,11 @@ try:
     from rich.console import Console
     from rich.table import Table
     from rich.panel import Panel
-    from rich.progress import Progress, SpinnerColumn, TextColumn
     from rich.syntax import Syntax
 except ImportError:
     Console = None
     Table = None
     Panel = None
-    Progress = None
     Syntax = None
 
 from .gguf_parser import GGUFParser
