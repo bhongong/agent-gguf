@@ -113,7 +113,8 @@ class ModelfileGenerator:
             return metadata["chat_template"]
         
         # Otherwise, select based on architecture
-        architecture = metadata.get("architecture", "").lower()
+        architecture = metadata.get("architecture") or ""
+        architecture = architecture.lower()
         
         # Try exact match first
         if architecture in self.TEMPLATE_MAPPINGS:
@@ -125,14 +126,15 @@ class ModelfileGenerator:
                 return template
         
         # Check model name for architecture hints
-        model_name = metadata.get("model_name", "").lower()
+        model_name = metadata.get("model_name") or ""
+        model_name = model_name.lower()
         for arch_name, template in self.TEMPLATE_MAPPINGS.items():
             if arch_name in model_name:
                 return template
         
         # Check HuggingFace info
         if hf_info and hf_info.get("model_id"):
-            model_id = hf_info["model_id"].lower()
+            model_id = (hf_info["model_id"] or "").lower()
             for arch_name, template in self.TEMPLATE_MAPPINGS.items():
                 if arch_name in model_id:
                     return template
