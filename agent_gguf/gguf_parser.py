@@ -2,7 +2,7 @@
 
 import re
 from pathlib import Path
-from typing import Dict, Optional
+from typing import Any, Dict, Optional
 
 try:
     import gguf
@@ -23,9 +23,9 @@ class GGUFParser:
         if not self.gguf_file.exists():
             raise FileNotFoundError(f"GGUF file not found: {gguf_file}")
         
-        self.metadata: Dict[str, any] = {}
+        self.metadata: Dict[str, Any] = {}
         
-    def parse(self) -> Dict[str, any]:
+    def parse(self) -> Dict[str, Any]:
         """Parse the GGUF file and extract metadata.
         
         Returns:
@@ -80,7 +80,7 @@ class GGUFParser:
         
         return self.metadata
     
-    def _get_field(self, reader: any, field_names: any) -> Optional[any]:
+    def _get_field(self, reader: Any, field_names: Any) -> Optional[Any]:
         """Get a field value from the GGUF reader.
         
         Args:

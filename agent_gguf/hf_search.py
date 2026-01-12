@@ -1,6 +1,6 @@
 """HuggingFace model search functionality."""
 
-from typing import Dict, Optional
+from typing import Any, Dict, Optional
 
 try:
     from huggingface_hub import HfApi
@@ -20,7 +20,7 @@ class HuggingFaceSearcher:
             )
         self.api = HfApi()
     
-    def search(self, model_name: str) -> Optional[Dict[str, any]]:
+    def search(self, model_name: str) -> Optional[Dict[str, Any]]:
         """Search for a model on HuggingFace.
         
         Args:
@@ -64,7 +64,7 @@ class HuggingFaceSearcher:
         self, 
         query: str, 
         library: Optional[str] = None
-    ) -> Optional[Dict[str, any]]:
+    ) -> Optional[Dict[str, Any]]:
         """Search with specific filters.
         
         Args:
@@ -130,7 +130,7 @@ class HuggingFaceSearcher:
         
         return name.strip('-_')
     
-    def _extract_base_model(self, model: any) -> Optional[str]:
+    def _extract_base_model(self, model: Any) -> Optional[str]:
         """Extract base model information.
         
         Args:

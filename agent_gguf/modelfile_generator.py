@@ -1,6 +1,6 @@
 """Modelfile generator for Ollama."""
 
-from typing import Dict, Optional
+from typing import Any, Dict, Optional
 
 
 class ModelfileGenerator:
@@ -47,9 +47,9 @@ class ModelfileGenerator:
     def generate(
         self,
         gguf_file: str,
-        metadata: Dict[str, any],
-        hf_info: Optional[Dict[str, any]] = None,
-        custom_params: Optional[Dict[str, any]] = None,
+        metadata: Dict[str, Any],
+        hf_info: Optional[Dict[str, Any]] = None,
+        custom_params: Optional[Dict[str, Any]] = None,
     ) -> str:
         """Generate a complete Modelfile.
         
@@ -96,8 +96,8 @@ class ModelfileGenerator:
     
     def _select_template(
         self,
-        metadata: Dict[str, any],
-        hf_info: Optional[Dict[str, any]] = None,
+        metadata: Dict[str, Any],
+        hf_info: Optional[Dict[str, Any]] = None,
     ) -> Optional[str]:
         """Select the appropriate template based on architecture.
         
@@ -144,8 +144,8 @@ class ModelfileGenerator:
     
     def _generate_system_message(
         self,
-        metadata: Dict[str, any],
-        hf_info: Optional[Dict[str, any]] = None,
+        metadata: Dict[str, Any],
+        hf_info: Optional[Dict[str, Any]] = None,
     ) -> str:
         """Generate a default system message.
         
