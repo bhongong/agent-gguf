@@ -14,11 +14,13 @@ try:
     from rich.table import Table
     from rich.panel import Panel
     from rich.progress import Progress, SpinnerColumn, TextColumn
+    from rich.syntax import Syntax
 except ImportError:
     Console = None
     Table = None
     Panel = None
     Progress = None
+    Syntax = None
 
 from .gguf_parser import GGUFParser
 from .hf_search import HuggingFaceSearcher
@@ -163,8 +165,7 @@ class CLI:
             
             # Show preview
             self.print("\n[bold]Modelfile Preview:[/bold]")
-            if self.console:
-                from rich.syntax import Syntax
+            if self.console and Syntax:
                 syntax = Syntax(modelfile_content, "dockerfile", theme="monokai", line_numbers=True)
                 self.console.print(syntax)
             else:
